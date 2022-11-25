@@ -1,0 +1,37 @@
+---
+- name: run aws configure
+  expect:
+   command: "aws configure"
+   responses:
+    'AWS Access Key ID': "{{prod_access_key}}"
+    'AWS Secret Access Key': "{{prod_secret_key}}"
+    'Default region name': ap-south-1
+    'Default output format': json
+  
+- name: EKS kube-config
+  command: "aws eks update-kubeconfig --region ap-south-1 --name {{my_cluster}}"
+
+- name: copy deploymen & service to {{ansible_env.HOME}}
+  template:
+    src: "{{item}}"
+    dest: "{{ansible_env.HOME}}/{{item}}"
+  with_items:
+   - deployment.yaml
+   - service.yaml
+  
+#- name: create a deployment
+#  k8s:
+#   state: present
+#   src: "{{ansible_env.HOME}}/deployment.yaml"
+
+#- name: create a service
+#  k8s:
+#   state: present
+#   src: "{{ansible_env.HOME}}/service.yaml"
+   
+- name: create a deployment
+  command: "kubectl apply -f {{ansible_env.HOME}}/deployment.yaml"
+  
+- name: create a service
+  command: "kubectl apply -f {{ansible_env.HOME}}/service.yaml"
+
