@@ -3,8 +3,8 @@
   expect:
    command: "aws configure"
    responses:
-    'AWS Access Key ID': "{{ lookup('env' + '_' + 'accesskey')}}"
-    'AWS Secret Access Key': "{{ lookup('env' + '_' + 'secretkey')}}"
+    'AWS Access Key ID': "{{ lookup('vars','env') + lookup('vars','accesskey') }}"
+    'AWS Secret Access Key': "{{ lookup('vars','env') + lookup('vars','accesskey') }}"
     'Default region name': ap-south-1
     'Default output format': json
   
