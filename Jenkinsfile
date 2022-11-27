@@ -22,6 +22,7 @@ pipeline {
           chmod 400 devopskey.pem
           ls -lrt
           echo ${BRANCH_NAME}
+          cd ansible
           ansible-playbook -i hosts site.yaml -e "@group_vars/prod.yaml" -e "imagename=nginx:1.23" -e "target=dev"
 
         '''
