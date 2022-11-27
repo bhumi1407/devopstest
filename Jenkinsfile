@@ -8,7 +8,7 @@ node {
 
     stage('check ansible') {
 
-      steps {
+      
         
         sh '''
 
@@ -23,7 +23,7 @@ node {
 
         '''
 
-      }
+      
 
     }
 
