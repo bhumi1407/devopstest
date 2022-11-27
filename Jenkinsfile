@@ -17,7 +17,7 @@ node {
           ls
           cd ansible
           printenv
-          #echo "${env.testing}"
+          echo "${testing}"
           #echo ${nginximagename}
           #ansible-playbook -i hosts site.yaml -e "@group_vars/${BRANCH_NAME}.yaml" -e "imagename=$(echo $nginximagename)" -e "target=dev"
 
