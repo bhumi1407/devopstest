@@ -10,9 +10,9 @@ node {
 
         git branch: 'prod', credentialsId: 'token-git', url: 'https://github.com/bhumi1407/devopstest.git'
         def time = "out"
-        //def testing = readFile '${WORKSPACE}/image_deploye.txt'
+        def testing = readFile '${WORKSPACE}/image_deploye.txt'
         sh 'ls & pwd'
-        //println(testing)
+        println(testing)
         sh '''
           #!/bin/bash
           ls
