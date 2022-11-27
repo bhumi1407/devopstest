@@ -12,7 +12,7 @@ node {
         def time = "out"
         sh '''
 
-          nginximagename = $(cat nginx_image_name)
+          #nginximagename = $(cat nginx_image_name)
           cd ansible
           ls -lrt
           pwd
