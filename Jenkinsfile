@@ -10,6 +10,7 @@ node {
 
       
         def time = "out"
+        println(time)
         sh '''
 
           #nginximagename = $(cat nginx_image_name)
