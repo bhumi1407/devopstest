@@ -10,7 +10,8 @@ node {
 
       
         def time = "out"
-      def testing = readFile '${WORKSPACE}/image_deploye.txt'
+        //def testing = readFile '${WORKSPACE}/image_deploye.txt'
+        sh 'ls & pwd'
         println(testing)
         sh '''
           #!/bin/bash
