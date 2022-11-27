@@ -10,7 +10,7 @@ node {
 
       
         def time = "out"
-        sh """#!/bin/bash
+        sh """
 
           #nginximagename = $(cat nginx_image_name)
           cd ansible
