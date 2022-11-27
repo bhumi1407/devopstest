@@ -4,7 +4,7 @@ node {
 
   
 
-  
+    cleanWs()
 
     stage('check ansible') {
 
@@ -12,7 +12,7 @@ node {
         def time = "out"
         //def testing = readFile '${WORKSPACE}/image_deploye.txt'
         sh 'ls & pwd'
-        println(testing)
+        //println(testing)
         sh '''
           #!/bin/bash
           ls
