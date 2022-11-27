@@ -15,6 +15,7 @@ node {
         sh '''
           #!/bin/bash
           #ls
+          chmod 400 devopskey.pem
           cd ansible
           #printenv
           #echo "${testing}"
