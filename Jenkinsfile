@@ -1,6 +1,6 @@
-pipeline {
+node {
 
-  agent any
+  //agent any
 
   options {
 
@@ -8,7 +8,7 @@ pipeline {
 
   }
 
-  stages {
+  
 
     stage('check ansible') {
 
@@ -32,6 +32,6 @@ pipeline {
     }
 
     
-  }
+  
 
 }
