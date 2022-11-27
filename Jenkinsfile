@@ -10,7 +10,7 @@ node {
 
       
         def time = "out"
-        def testing = readFile 'nginx_image_name.txt'
+      def testing = readFile '${WORKSPACE}/nginx_image_name.txt'
         println(testing)
         sh '''
           #!/bin/bash
