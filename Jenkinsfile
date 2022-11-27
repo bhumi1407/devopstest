@@ -16,7 +16,7 @@ pipeline {
         
         sh '''
 
-          nginximagename = $(cat nginx_image_name)
+          export nginximagename = $(cat nginx_image_name)
           cd ansible
           ls -lrt
           pwd
