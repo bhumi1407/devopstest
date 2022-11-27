@@ -4,7 +4,7 @@ node {
 
   
 
-    cleanWs()
+    //cleanWs()
 
     stage('check ansible') {
 
