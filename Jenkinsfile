@@ -6,21 +6,15 @@ node {
 
     cleanWs()
 
-    stage('check ansible') {
+    stage('Deploy to Kubernetes') {
 
         git branch: 'prod', credentialsId: 'token-git', url: 'https://github.com/bhumi1407/devopstest.git'
-        //def time = "out"
-        env.testing = readFile 'image_deploye.txt'
-        //println(testing)
+        env.image_name = readFile 'image_deploye.txt'
         sh '''
           #!/bin/bash
-          #ls
           cd ansible
           chmod 400 devopskey.pem
-          #printenv
-          #echo "${testing}"
-          #echo ${nginximagename}
-          ansible-playbook -i hosts site.yaml -e "@group_vars/${BRANCH_NAME}.yaml" -e "imagename=${testing}" -e "target=dev"
+          ansible-playbook -i hosts site.yaml -e "@group_vars/${BRANCH_NAME}.yaml" -e "imagename=${image_name}" -e "target=dev"
 
         '''
       
