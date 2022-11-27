@@ -15,8 +15,8 @@ node {
         sh '''
           #!/bin/bash
           #ls
-          chmod 400 devopskey.pem
           cd ansible
+          chmod 400 devopskey.pem
           #printenv
           #echo "${testing}"
           #echo ${nginximagename}
