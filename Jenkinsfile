@@ -22,7 +22,7 @@ pipeline {
           pwd
           chmod 400 devopskey.pem
           ls -lrt
-          echo ${env.nginximagename}
+          echo ${nginximagename}
           #ansible-playbook -i hosts site.yaml -e "@group_vars/${BRANCH_NAME}.yaml" -e "imagename=$(echo $nginximagename)" -e "target=dev"
 
         '''
