@@ -11,7 +11,7 @@ node {
       
         def time = "out"
         println(time)
-        sh """
+        sh '''
           #!/bin/bash
 
           #nginximagename = $(cat nginx_image_name)
@@ -20,7 +20,7 @@ node {
           #echo ${nginximagename}
           #ansible-playbook -i hosts site.yaml -e "@group_vars/${BRANCH_NAME}.yaml" -e "imagename=$(echo $nginximagename)" -e "target=dev"
 
-        """
+        '''
       
 
     }
