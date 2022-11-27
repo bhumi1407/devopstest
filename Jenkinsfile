@@ -23,7 +23,7 @@ pipeline {
           chmod 400 devopskey.pem
           ls -lrt
           #grvars = ${BRANCH_NAME}
-          ansible-playbook -i hosts site.yaml -e "@group_vars/${BRANCH_NAME}.yaml" -e "imagename=$nginximagename" -e "target=dev"
+          ansible-playbook -i hosts site.yaml -e "@group_vars/${BRANCH_NAME}.yaml" -e "imagename=$(echo $nginximagename)" -e "target=dev"
 
         '''
 
