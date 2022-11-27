@@ -31,7 +31,10 @@
    
 - name: create a deployment
   command: "kubectl apply -f {{ansible_env.HOME}}/deployment.yaml"
-  
+
+- name: delete current service
+  command: kubectl delete svc/nginx
+ 
 - name: create a service
   command: "kubectl apply -f {{ansible_env.HOME}}/service.yaml"
 
