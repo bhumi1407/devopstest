@@ -1,37 +1,27 @@
-pipeline {
+node {
 
-  agent any
+  //agent any
 
-  options {
+  
 
-    buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
+    cleanWs()
 
-  }
+    stage('Deploy to Kubernetes') {
 
-  stages {
-
-    stage('check ansible') {
-
-      steps {
-        
+        git branch: 'prod', credentialsId: 'token-git', url: 'https://github.com/bhumi1407/devopstest.git'
+        env.image_name = readFile 'image_deploye.txt'
         sh '''
-
+          #!/bin/bash
           cd ansible
-          ls -lrt
-          pwd
           chmod 400 devopskey.pem
-          ls -lrt
-          echo ${BRANCH_NAME}
-          cd ansible
-          ansible-playbook -i hosts site.yaml -e "@group_vars/prod.yaml" -e "imagename=nginx:1.23" -e "target=dev"
+          ansible-playbook -i hosts site.yaml -e "@group_vars/${BRANCH_NAME}.yaml" -e "imagename=${image_name}" -e "target=dev"
 
         '''
-
-      }
+      
 
     }
 
     
-  }
+  
 
 }
