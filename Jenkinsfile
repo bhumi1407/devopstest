@@ -14,7 +14,7 @@ node {
         sh '''
           #!/bin/bash
 
-          nginximagename = nginx_image_name.txt
+          export nginximagename = nginx_image_name.txt
           cd ansible
           #echo "\${time}"
           #echo ${nginximagename}
