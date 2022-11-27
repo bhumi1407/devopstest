@@ -10,11 +10,11 @@ node {
 
       
         def time = "out"
-      def testing = readFile '${WORKSPACE}/nginx_image_name.txt'
+      def testing = readFile '${WORKSPACE}/image_deploye.txt'
         println(testing)
         sh '''
           #!/bin/bash
-
+          ls
           #declare nginximagename = nginx_image_name.txt
           cd ansible
           #echo "\${time}"
