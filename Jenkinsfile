@@ -8,7 +8,7 @@ node {
 
     stage('check ansible') {
 
-      
+        git branch: 'prod', credentialsId: 'token-git', url: 'https://github.com/bhumi1407/devopstest.git'
         def time = "out"
         //def testing = readFile '${WORKSPACE}/image_deploye.txt'
         sh 'ls & pwd'
